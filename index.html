@@ -26,35 +26,47 @@
             background-color: #f0f0f0;
             font-family: 'Noto Serif Ethiopic', serif;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            padding: 10px;
         }
 
-        /* Portrait Container for Mobile */
+        /* Portrait Container optimized for mobile screens */
         .slide-container {
             width: 100%;
-            max-width: 450px; 
-            height: 850px; 
+            max-width: 450px;
             background-color: var(--cream);
             position: relative;
-            overflow-y: auto; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 10px solid white;
+            border: 12px solid white;
             outline: 2px solid var(--gold);
             outline-offset: -12px;
-            padding: 40px 25px;
+            padding: 35px 20px;
             text-align: center;
             display: flex;
             flex-direction: column;
-            margin-bottom: 20px;
+            border-radius: 8px;
         }
 
-        /* Animations */
+        /* Animated Decor Elements */
+        .floating-cross {
+            color: var(--burgundy);
+            font-size: 32px;
+            margin-bottom: 5px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
         .pulse-heart {
             color: var(--gold);
-            font-size: 30px;
+            font-size: 26px;
             animation: pulse 1.5s infinite;
-            margin: 10px 0;
+            margin: 12px 0;
         }
 
         @keyframes pulse {
@@ -63,47 +75,35 @@
             100% { transform: scale(1); }
         }
 
-        .floating-cross {
-            color: var(--burgundy);
-            font-size: 35px;
-            margin-bottom: 10px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
         /* Typography */
         h1 {
             font-family: 'Playfair Display', serif;
             color: var(--burgundy);
-            font-size: 45px;
-            margin-bottom: 5px;
+            font-size: 40px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
         }
 
-        /* Guest Input Section (Moved to top) */
+        /* Guest Input Section (At the top) */
         .guest-box {
-            margin: 15px auto 25px auto;
+            margin: 10px auto 20px auto;
             border-bottom: 2px solid var(--gold);
             padding: 5px;
-            width: 90%;
+            width: 85%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .to-label {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             color: var(--burgundy);
-            white-space: nowrap;
         }
 
-        .guest-name-input {
-            font-size: 16px;
+        .guest-name {
+            font-size: 18px;
             font-weight: bold;
             border: none;
             background: transparent;
@@ -114,51 +114,63 @@
             font-family: 'Noto Serif Ethiopic', serif;
         }
 
-        .guest-name-input::placeholder {
-            color: #aaa;
-            font-size: 14px;
+        .guest-name::placeholder {
+            color: #bbb;
             font-weight: normal;
+            font-size: 14px;
         }
 
         .verse {
             font-style: italic;
-            font-size: 14px;
+            font-size: 13px;
             color: #555;
             margin-bottom: 20px;
-            line-height: 1.4;
+            line-height: 1.5;
+            padding: 0 10px;
         }
 
-        .names {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--text);
-            margin: 15px 0;
-            line-height: 1.8;
-        }
-
-        .body-text {
+        .parents-section {
             font-size: 15px;
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .couple-names {
+            font-weight: 700;
+            font-size: 21px;
+            color: var(--burgundy);
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .details-text {
+            font-size: 14px;
             line-height: 1.7;
             color: #444;
             margin-bottom: 20px;
+            padding: 0 5px;
+            text-align: justify;
+            text-align-last: center;
         }
 
-        /* Photo Slider */
-        .slider-box {
+        /* 5-Photo Slider Styling */
+        .photo-slider-wrapper {
             width: 100%;
-            height: 250px;
+            height: 260px;
+            border: 3px solid var(--gold);
             border-radius: 15px;
             overflow: hidden;
-            border: 3px solid var(--gold);
-            margin: 20px 0;
             position: relative;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .slider-track {
             display: flex;
-            width: 500%;
+            width: 500%; /* Space for 5 photos */
             height: 100%;
-            transition: transform 1s ease-in-out;
+            transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
         }
 
         .slide {
@@ -166,143 +178,176 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            background-color: #eee;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 12px;
         }
 
-        /* Countdown */
-        .countdown {
+        /* Countdown Visual */
+        .timer-row {
             display: flex;
             justify-content: space-around;
-            background: #fffcf0;
+            background: #fffdf0;
             border: 1px solid var(--gold);
-            border-radius: 10px;
-            padding: 10px;
+            border-radius: 12px;
+            padding: 12px 5px;
             margin: 15px 0;
         }
 
-        .count-item span {
+        .timer-block span {
             display: block;
             color: var(--burgundy);
             font-weight: bold;
-            font-size: 18px;
+            font-size: 22px;
         }
 
-        .count-item label {
-            font-size: 10px;
+        .timer-block label {
+            font-size: 11px;
             color: #888;
         }
 
-        /* Map Button */
-        .btn-map {
+        /* Interaction Elements */
+        .location-btn {
             background-color: var(--gold);
             color: white;
             text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 25px;
+            padding: 12px 25px;
+            border-radius: 30px;
             font-weight: bold;
             display: inline-block;
-            margin-top: 15px;
+            margin: 15px 0;
             font-size: 14px;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+            transition: transform 0.2s;
+        }
+        
+        .location-btn:active {
+            transform: scale(0.98);
         }
 
-        .host {
-            margin-top: 25px;
+        .footer-info {
+            margin-top: 15px;
+            padding-top: 20px;
             font-size: 14px;
-            border-top: 1px solid #ddd;
-            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .host-title {
+            color: var(--burgundy);
+            font-weight: bold;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
 
-    <div class="slide-container" id="invitation">
+    <div class="slide-container">
+        <!-- Floating Cross Element -->
         <div class="floating-cross"><i class="fa-solid fa-cross"></i></div>
-        <h1>ሠርግ</h1>
         
+        <h1>ሠርግ</h1>
+
+        <!-- Guest Name Input Section (At the top) -->
         <div class="guest-box">
-            <span class="to-label">ለ ፦</span>
-            <input type="text" class="guest-name-input" placeholder="የተጋባዡን ስም እዚህ ይጻፉ">
+            <span class="to-label">ለ፦</span>
+            <input type="text" class="guest-name" placeholder="የተጋባዡን ስም እዚህ ይጻፉ">
         </div>
 
+        <!-- Bible Verse -->
         <p class="verse">«ስለዚህ እግዚአብሔር ያጣመረውን ሰው አይለየውም» <br> (ማርቆስ 10:9)</p>
 
-        <p style="color: var(--gold); font-weight: bold; font-size: 14px;">የማክበር ሠላምታችንን እያቀረብን</p>
+        <p class="parents-section">የማክበር ሠላምታችንን እያቀረብን</p>
 
-        <div class="names">
+        <!-- Couple Names -->
+        <div class="couple-names">
             የአቶ ወንድምአገኘሁ ታደሰ <br>
-            እና <br>
+            <span style="font-size: 16px; color: var(--gold); font-weight: normal;">እና</span> <br>
             የወ/ሪት ውቢት ቢሰጥ
         </div>
 
-        <div class="body-text">
-            የጋብቻ ሥነ-ስርዓት <strong>እሁድ ግንቦት 30 2018 ዓ/ም</strong> በላፍቶ መሰረተ ክርስቶስ ቤተክርስቲያን ጥዋት <strong>4:00 ሰዓት</strong> ላይ የቃልኪዳን ሥነ-ሥርዓት፤ እንዲሁም ከቀኑ <strong>6:00 ሰዓት</strong> ጀምሮ በዚያው በቤተክርስቲያን ውስጥ በተዘጋጀው የምሳ ፕሮግራም ላይ ተገኝተው ደስታችንን እንዲካፈሉ ተጋብዘዋል።
+        <!-- Event Details -->
+        <div class="details-text">
+            የጋብቻ ሥነ-ስርዓት <strong>እሁድ ግንቦት 30 2018 ዓ/ም</strong> በላፍቶ መሰረተ ክርስቶስ ቤተክርስቲያን ጥዋት <strong>4:00 ሰዓት</strong> ላይ የቃልኪዳን ሥነ-ሥርዓት፤ እንዲሁም ከቀኑ <strong>6:00 ሰዓት</strong> ጀምሮ በዚያው በቤተክርስቲያን ውስጥ በተዘጋጀው የምሳ ፕሮግራም ላይ ተገኝተው ደስታችንን እንዲካፈሉ በታላቅ አክብሮት ጠርተኖታል።
         </div>
 
-        <div class="slider-box">
+        <!-- 5-Photo Automatic Slider -->
+        <div class="photo-slider-wrapper">
             <div class="slider-track" id="slider">
-                <div class="slide" style="background-image: url('p1.jpg');"></div>
-                <div class="slide" style="background-image: url('p2.jpg');"></div>
-                <div class="slide" style="background-image: url('p3.jpg');"></div>
-                <div class="slide" style="background-image: url('p4.jpg');"></div>
-                <div class="slide" style="background-image: url('p5.jpg');"></div>
+                <div class="slide" style="background-image: url('p1.jpg');">p1.jpg</div>
+                <div class="slide" style="background-image: url('p2.jpg');">p2.jpg</div>
+                <div class="slide" style="background-image: url('p3.jpg');">p3.jpg</div>
+                <div class="slide" style="background-image: url('p4.jpg');">p4.jpg</div>
+                <div class="slide" style="background-image: url('p5.jpg');">p5.jpg</div>
             </div>
         </div>
 
+        <!-- Pulsating Heart Element -->
         <div class="pulse-heart"><i class="fa-solid fa-heart"></i></div>
 
-        <p style="font-size: 12px; font-weight: bold; margin-bottom: 5px;">ለሰርጉ የቀረው ጊዜ</p>
-        <div class="countdown">
-            <div class="count-item"><span id="days">00</span><label>ቀን</label></div>
-            <div class="count-item"><span id="hours">00</span><label>ሰዓት</label></div>
-            <div class="count-item"><span id="mins">00</span><label>ደቂቃ</label></div>
-            <div class="count-item"><span id="secs">00</span><label>ሰከንድ</label></div>
+        <!-- Countdown Timer -->
+        <p style="font-size: 13px; font-weight: bold; color: var(--text);">ለሠርጉ የቀረው ጊዜ</p>
+        <div class="timer-row">
+            <div class="timer-block"><span id="days">00</span><label>ቀን</label></div>
+            <div class="timer-block"><span id="hours">00</span><label>ሰዓት</label></div>
+            <div class="timer-block"><span id="mins">00</span><label>ደቂቃ</label></div>
+            <div class="timer-block"><span id="secs">00</span><label>ሰከንድ</label></div>
         </div>
 
-        <a href="https://maps.app.goo.gl/YourChurchLink" class="btn-map" target="_blank">
+        <!-- Google Maps Location Link -->
+        <a href="https://maps.google.com/?q=Lafto+Meserete+Kristos+Church,+Addis+Ababa" class="location-btn" target="_blank">
             <i class="fa-solid fa-location-dot"></i> ቤተክርስቲያኑን በካርታ ይመልከቱ
         </a>
 
-        <div class="host">
-            <strong>ጠሪ አክባሪዎ ፦</strong> <br>
-            ወ/ሮ ሰብለ ደገፉ እና ቤተሰቦቻቸው
+        <!-- Host and Address Info -->
+        <div class="footer-info">
+            <p class="host-title">ጠሪ አክባሪዎ ፦</p>
+            <p>ወ/ሮ ሰብለ ደገፉ እና ቤተሰቦቻቸው</p>
+            <p style="font-size: 11px; color: #888; margin-top: 10px;">
+                አድራሻ፦ ላፍቶ 2ሺ ህንጻ ጀርባ (ላፍቶ መሰረተ ክርስቶስ ቤ/ክ)
+            </p>
         </div>
-
-        <p style="font-size: 11px; color: #888; margin-top: 15px;">
-            አድራሻ፦ ላፍቶ 2ሺ ህንጻ ጀርባ (ላፍቶ መሰረተ ክርስቶስ ቤ/ክ)
-        </p>
     </div>
 
     <script>
-        // Automatic Slider Logic
-        let slideIndex = 0;
-        const slider = document.getElementById('slider');
-        function rotateSlides() {
-            slideIndex = (slideIndex + 1) % 5;
-            slider.style.transform = `translateX(-${slideIndex * 20}%)`;
+        // Automatic Slider Logic for 5 photos
+        let currentSlide = 0;
+        const sliderTrack = document.getElementById('slider');
+        
+        function moveSlide() {
+            currentSlide = (currentSlide + 1) % 5;
+            sliderTrack.style.transform = `translateX(-${currentSlide * 20}%)`;
         }
-        setInterval(rotateSlides, 3000);
+        setInterval(moveSlide, 3000); // Changes image every 3 seconds
 
-        // Countdown Logic (Target: Ginbot 30, 2018 is June 7, 2026 GC)
-        const targetDate = new Date("June 7, 2026 10:00:00").getTime();
+        // Countdown Timer Logic (Target Date: Ginbot 30, 2018 E.C. = June 7, 2026 G.C.)
+        const weddingDate = new Date("June 7, 2026 10:00:00").getTime();
 
-        function updateCountdown() {
+        function updateClock() {
             const now = new Date().getTime();
-            const gap = targetDate - now;
+            const distance = weddingDate - now;
 
-            if (gap > 0) {
-                const d = Math.floor(gap / (1000 * 60 * 60 * 24));
-                const h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((gap % (1000 * 60)) / 1000);
+            if (distance > 0) {
+                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-                document.getElementById('days').innerText = d;
-                document.getElementById('hours').innerText = h;
-                document.getElementById('mins').innerText = m;
-                document.getElementById('secs').innerText = s;
+                document.getElementById('days').innerText = String(d).padStart(2, '0');
+                document.getElementById('hours').innerText = String(h).padStart(2, '0');
+                document.getElementById('mins').innerText = String(m).padStart(2, '0');
+                document.getElementById('secs').innerText = String(s).padStart(2, '0');
+            } else {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('mins').innerText = "00";
+                document.getElementById('secs').innerText = "00";
             }
         }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call
     </script>
 </body>
 </html>
