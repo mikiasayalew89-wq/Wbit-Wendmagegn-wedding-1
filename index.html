@@ -27,46 +27,44 @@
             font-family: 'Noto Serif Ethiopic', serif;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 10px;
         }
 
-        /* Portrait Container optimized for mobile screens */
+        /* Portrait Container for Mobile */
         .slide-container {
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
+            min-height: 100vh;
             background-color: var(--cream);
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             border: 12px solid white;
             outline: 2px solid var(--gold);
             outline-offset: -12px;
-            padding: 35px 20px;
+            padding: 40px 20px;
             text-align: center;
             display: flex;
             flex-direction: column;
-            border-radius: 8px;
+            overflow-x: hidden;
         }
 
         /* Animated Decor Elements */
         .floating-cross {
             color: var(--burgundy);
-            font-size: 32px;
+            font-size: 30px;
             margin-bottom: 5px;
             animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-10px); }
         }
 
         .pulse-heart {
             color: var(--gold);
-            font-size: 26px;
+            font-size: 24px;
             animation: pulse 1.5s infinite;
-            margin: 12px 0;
+            margin: 10px 0;
         }
 
         @keyframes pulse {
@@ -79,14 +77,13 @@
         h1 {
             font-family: 'Playfair Display', serif;
             color: var(--burgundy);
-            font-size: 40px;
+            font-size: 42px;
             margin-bottom: 10px;
-            letter-spacing: 2px;
         }
 
-        /* Guest Input Section (At the top) */
+        /* Guest Input Section (Moved to top) */
         .guest-box {
-            margin: 10px auto 20px auto;
+            margin: 10px auto 25px auto;
             border-bottom: 2px solid var(--gold);
             padding: 5px;
             width: 85%;
@@ -114,23 +111,17 @@
             font-family: 'Noto Serif Ethiopic', serif;
         }
 
-        .guest-name::placeholder {
-            color: #bbb;
-            font-weight: normal;
-            font-size: 14px;
-        }
-
         .verse {
             font-style: italic;
             font-size: 13px;
             color: #555;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            margin-bottom: 15px;
+            line-height: 1.4;
             padding: 0 10px;
         }
 
         .parents-section {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--gold);
             font-weight: bold;
             margin-bottom: 5px;
@@ -138,37 +129,36 @@
 
         .couple-names {
             font-weight: 700;
-            font-size: 21px;
+            font-size: 20px;
             color: var(--burgundy);
             margin: 10px 0;
             line-height: 1.6;
+            font-family: 'Playfair Display', serif;
         }
 
         .details-text {
             font-size: 14px;
-            line-height: 1.7;
+            line-height: 1.6;
             color: #444;
             margin-bottom: 20px;
             padding: 0 5px;
-            text-align: justify;
-            text-align-last: center;
         }
 
         /* 5-Photo Slider Styling */
         .photo-slider-wrapper {
             width: 100%;
-            height: 260px;
+            height: 300px;
             border: 3px solid var(--gold);
             border-radius: 15px;
             overflow: hidden;
             position: relative;
-            margin: 15px 0;
+            margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .slider-track {
             display: flex;
-            width: 500%; /* Space for 5 photos */
+            width: 500%; /* 5 photos */
             height: 100%;
             transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
         }
@@ -178,12 +168,8 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            background-color: #f4f4f4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-            font-size: 12px;
+            background-color: #f9f9f9;
+            position: relative;
         }
 
         /* Countdown Visual */
@@ -201,7 +187,7 @@
             display: block;
             color: var(--burgundy);
             font-weight: bold;
-            font-size: 22px;
+            font-size: 20px;
         }
 
         .timer-block label {
@@ -209,7 +195,7 @@
             color: #888;
         }
 
-        /* Interaction Elements */
+        /* Map Button */
         .location-btn {
             background-color: var(--gold);
             color: white;
@@ -220,16 +206,10 @@
             display: inline-block;
             margin: 15px 0;
             font-size: 14px;
-            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
-            transition: transform 0.2s;
-        }
-        
-        .location-btn:active {
-            transform: scale(0.98);
         }
 
         .footer-info {
-            margin-top: 15px;
+            margin-top: auto;
             padding-top: 20px;
             font-size: 14px;
             border-top: 1px solid #eee;
@@ -245,49 +225,41 @@
 <body>
 
     <div class="slide-container">
-        <!-- Floating Cross Element -->
         <div class="floating-cross"><i class="fa-solid fa-cross"></i></div>
         
         <h1>ሠርግ</h1>
 
-        <!-- Guest Name Input Section (At the top) -->
         <div class="guest-box">
             <span class="to-label">ለ፦</span>
-            <input type="text" class="guest-name" placeholder="የተጋባዡን ስም እዚህ ይጻፉ">
+            <input type="text" class="guest-name" id="guestName" placeholder="የተጋባዡን ስም እዚህ ይጻፉ">
         </div>
 
-        <!-- Bible Verse -->
         <p class="verse">«ስለዚህ እግዚአብሔር ያጣመረውን ሰው አይለየውም» <br> (ማርቆስ 10:9)</p>
 
         <p class="parents-section">የማክበር ሠላምታችንን እያቀረብን</p>
 
-        <!-- Couple Names -->
         <div class="couple-names">
             የአቶ ወንድምአገኘሁ ታደሰ <br>
-            <span style="font-size: 16px; color: var(--gold); font-weight: normal;">እና</span> <br>
+            <span style="font-size: 16px; color: var(--gold);">እና</span> <br>
             የወ/ሪት ውቢት ቢሰጥ
         </div>
 
-        <!-- Event Details -->
         <div class="details-text">
-            የጋብቻ ሥነ-ስርዓት <strong>እሁድ ግንቦት 30 2018 ዓ/ም</strong> በላፍቶ መሰረተ ክርስቶስ ቤተክርስቲያን ጥዋት <strong>4:00 ሰዓት</strong> ላይ የቃልኪዳን ሥነ-ሥርዓት፤ እንዲሁም ከቀኑ <strong>6:00 ሰዓት</strong> ጀምሮ በዚያው በቤተክርስቲያን ውስጥ በተዘጋጀው የምሳ ፕሮግራም ላይ ተገኝተው ደስታችንን እንዲካፈሉ በታላቅ አክብሮት ጠርተኖታል።
+            የጋብቻ ሥነ-ስርዓት <strong>እሁድ ግንቦት 30 2018 ዓ/ም</strong> በላፍቶ መሰረተ ክርስቶስ ቤተክርስቲያን ጥዋት <strong>4:00 ሰዓት</strong> ላይ የቃልኪዳን ሥነ-ሥርዓት፤ እንዲሁም ከቀኑ <strong>6:00 ሰዓት</strong> ጀምሮ በዚያው በቤተክርስቲያን ውስጥ በተዘጋጀው የምሳ ፕሮግራም ላይ ተገኝተው ደስታችንን እንዲካፈሉ ተጋብዘዋል።
         </div>
 
-        <!-- 5-Photo Automatic Slider -->
         <div class="photo-slider-wrapper">
             <div class="slider-track" id="slider">
-                <div class="slide" style="background-image: url('p1.jpg');">p1.jpg</div>
-                <div class="slide" style="background-image: url('p2.jpg');">p2.jpg</div>
-                <div class="slide" style="background-image: url('p3.jpg');">p3.jpg</div>
-                <div class="slide" style="background-image: url('p4.jpg');">p4.jpg</div>
-                <div class="slide" style="background-image: url('p5.jpg');">p5.jpg</div>
+                <div class="slide" style="background-image: url('p1.jpg');"></div>
+                <div class="slide" style="background-image: url('p2.jpg');"></div>
+                <div class="slide" style="background-image: url('p3.jpg');"></div>
+                <div class="slide" style="background-image: url('p4.jpg');"></div>
+                <div class="slide" style="background-image: url('p5.jpg');"></div>
             </div>
         </div>
 
-        <!-- Pulsating Heart Element -->
         <div class="pulse-heart"><i class="fa-solid fa-heart"></i></div>
 
-        <!-- Countdown Timer -->
         <p style="font-size: 13px; font-weight: bold; color: var(--text);">ለሠርጉ የቀረው ጊዜ</p>
         <div class="timer-row">
             <div class="timer-block"><span id="days">00</span><label>ቀን</label></div>
@@ -296,12 +268,10 @@
             <div class="timer-block"><span id="secs">00</span><label>ሰከንድ</label></div>
         </div>
 
-        <!-- Google Maps Location Link -->
-        <a href="https://maps.google.com/?q=Lafto+Meserete+Kristos+Church,+Addis+Ababa" class="location-btn" target="_blank">
+        <a href="https://maps.app.goo.gl/YourChurchLocation" class="location-btn" target="_blank">
             <i class="fa-solid fa-location-dot"></i> ቤተክርስቲያኑን በካርታ ይመልከቱ
         </a>
 
-        <!-- Host and Address Info -->
         <div class="footer-info">
             <p class="host-title">ጠሪ አክባሪዎ ፦</p>
             <p>ወ/ሮ ሰብለ ደገፉ እና ቤተሰቦቻቸው</p>
@@ -312,42 +282,45 @@
     </div>
 
     <script>
-        // Automatic Slider Logic for 5 photos
+        // Slider Logic
         let currentSlide = 0;
         const sliderTrack = document.getElementById('slider');
-        
         function moveSlide() {
             currentSlide = (currentSlide + 1) % 5;
             sliderTrack.style.transform = `translateX(-${currentSlide * 20}%)`;
         }
-        setInterval(moveSlide, 3000); // Changes image every 3 seconds
+        setInterval(moveSlide, 3500);
 
-        // Countdown Timer Logic (Target Date: Ginbot 30, 2018 E.C. = June 7, 2026 G.C.)
-        const weddingDate = new Date("June 7, 2026 10:00:00").getTime();
-
+        // Countdown Logic (Target June 7, 2026 - Ginbot 30, 2018 E.C.)
+        const targetDate = new Date("June 7, 2026 10:00:00").getTime();
         function updateClock() {
             const now = new Date().getTime();
-            const distance = weddingDate - now;
-
-            if (distance > 0) {
-                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((distance % (1000 * 60)) / 1000);
-
+            const gap = targetDate - now;
+            if (gap > 0) {
+                const d = Math.floor(gap / (1000 * 60 * 60 * 24));
+                const h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((gap % (1000 * 60)) / 1000);
                 document.getElementById('days').innerText = String(d).padStart(2, '0');
                 document.getElementById('hours').innerText = String(h).padStart(2, '0');
                 document.getElementById('mins').innerText = String(m).padStart(2, '0');
                 document.getElementById('secs').innerText = String(s).padStart(2, '0');
-            } else {
-                document.getElementById('days').innerText = "00";
-                document.getElementById('hours').innerText = "00";
-                document.getElementById('mins').innerText = "00";
-                document.getElementById('secs').innerText = "00";
             }
         }
         setInterval(updateClock, 1000);
-        updateClock(); // Initial call
+        updateClock();
+
+        // Get Name from URL and display it
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Get the current URL's query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            // Look for the 'nm' parameter
+            const guestName = urlParams.get('nm');
+            // If it exists, put it in the input box
+            if (guestName) {
+                document.getElementById('guestName').value = guestName;
+            }
+        });
     </script>
 </body>
 </html>
